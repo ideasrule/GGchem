@@ -47,14 +47,14 @@
       !-------------------------------------
       mu = muH
       do i=1,Npoints
-        do ii=1,Npoints
+         do ii=1,30
           fac = REAL(i-1)/REAL(Npoints-1) 
           if (model_pconst) then
             p = EXP(LOG(pmax)+fac*LOG(pmin/pmax))
           else  
             nHges = EXP(LOG(nHmax)+fac*LOG(nHmin/nHmax))
           endif  
-          Tg = EXP(LOG(Tmax)+LOG(Tmin/Tmax)*REAL(ii-1)/REAL(Npoints-1))
+          Tg = Tmax - (ii-1)*(Tmax-Tmin)/REAL(30-1) 
           eldust = 0.0
           !--- iterate to achieve requested pressure ---
           do 

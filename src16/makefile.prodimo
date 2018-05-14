@@ -1,23 +1,23 @@
-F90          = ifort
-F90LINKER    = ifort
-#F90          = gfortran
-#F90LINKER    = gfortran
+#F90          = ifort
+#F90LINKER    = ifort
+F90          = gfortran
+F90LINKER    = gfortran
 
 # for IFORT-Compiler
 #===================
-DEFS      = -D IFORT -diag-disable 8290,8291 
+#DEFS      = -D IFORT -diag-disable 8290,8291 
 #FFLAGS   = -r8 -g -traceback -check all,noarg_temp_created -fpe0
-FFLAGS    = -r8 -g -traceback -O3 -xHOST -prec-div -fp-model source
-INCLUDES  = 
-LFLAGS    = $(FFLAGS)
+#FFLAGS    = -r8 -g -traceback -O3 -xHOST -prec-div -fp-model source
+#INCLUDES  = 
+#LFLAGS    = $(FFLAGS)
 
 # for gfortran-Compiler
 #======================
-#DEFS      = 
-##FFLAGS   = -fdefault-real-8 -fdefault-double-8 -fbounds-check -fbacktrace -g 
-#FFLAGS    = -fdefault-real-8 -fdefault-double-8 -g -O5
-#INCLUDES  = 
-#LFLAGS    = $(FFLAGS)
+DEFS      = 
+#FFLAGS   = -fdefault-real-8 -fdefault-double-8 -fbounds-check -fbacktrace -g 
+FFLAGS    = -fdefault-real-8 -fdefault-double-8 -g -O5
+INCLUDES  = 
+LFLAGS    = $(FFLAGS)
 
 EXECS     = ggchem16
 
