@@ -23,7 +23,6 @@ data/JANAF/fitout*
 data/JANAF/*.pdf
 data/JANAF/*fitdata*
 tools/kp.pdf
-model_*.in
 logfile
 perform.dat
 out.ps
