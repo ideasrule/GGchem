@@ -23,7 +23,7 @@ abundances.in
 1000                  ! pmax [bar]    
 1.E-9                 ! pmin [bar]
 13                    ! Npoints
-200 		      ! NumTpoints
+28 		      ! NumTpoints
 50                    ! NewBackIt  
 1000.0                ! Tfast
 
