@@ -2,7 +2,7 @@
       SUBROUTINE DEMO_PHASEDIAGRAM
 ***********************************************************************
       use PARAMETERS,ONLY: Tmin,Tmax,pmin,pmax,nHmin,nHmax,
-     >                     model_eqcond,model_pconst,Npoints
+     >                     model_eqcond,model_pconst,Npoints, NumTpoints
       use CHEMISTRY,ONLY: NELM,NMOLE,elnum,cmol,catm,el,charge
       use DUST_DATA,ONLY: NELEM,NDUST,elnam,eps0,bk,bar,muH,
      >                    amu,dust_nam,dust_mass,dust_Vol
@@ -44,17 +44,20 @@
 
       !-------------------------------------
       ! ***  run chemistry on structure  ***
-      !-------------------------------------
+!-------------------------------------
+
       mu = muH
       do i=1,Npoints
-         do ii=1,30
+         do ii=1,NumTpoints
           fac = REAL(i-1)/REAL(Npoints-1) 
           if (model_pconst) then
-            p = EXP(LOG(pmax)+fac*LOG(pmin/pmax))
+             p = EXP(LOG(pmax)+fac*LOG(pmin/pmax))
+             write(*,*) "i,p", i,p,pmin,pmax,fac
           else  
             nHges = EXP(LOG(nHmax)+fac*LOG(nHmin/nHmax))
           endif  
-          Tg = Tmax - (ii-1)*(Tmax-Tmin)/REAL(30-1) 
+          Tg = Tmax - (ii-1)*(Tmax-Tmin)/REAL(NumTpoints-1)
+          write(*,*) "Processing Tg,p", Tg, p, Npoints, NumTpoints
           eldust = 0.0
           !--- iterate to achieve requested pressure ---
           do 

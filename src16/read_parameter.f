@@ -2,7 +2,8 @@
       subroutine READ_PARAMETER
 ************************************************************************
       use PARAMETERS,ONLY: elements,abund_pick,model_dim,model_pconst,
-     >                     model_struc,model_eqcond,Npoints,useDatabase,
+     >     model_struc,model_eqcond,Npoints,NumTpoints,
+     >     useDatabase,
      >                     Tfast,Tmin,Tmax,pmin,pmax,nHmin,nHmax,
      >                     abund_file,struc_file,remove_condensates
       use CHEMISTRY,ONLY: NewBackIt,NewFullIt,NewBackFac,NewPreMethod,
@@ -27,6 +28,7 @@
       model_pconst = .true.
       model_struc  = 0
       Npoints      = 100
+      NumTpoints   = 30
       Tfast        = 1000.d0
       Tmin         = 100.d0
       Tmax         = 6000.d0
@@ -90,7 +92,9 @@
         else if (index(line,"! nHmin")>0) then 
           read(line,*) nHmin
         else if (index(line,"! Npoints")>0) then 
-          read(line,*) Npoints
+           read(line,*) Npoints
+        else if (index(line,"! NumTpoints")>0) then           
+           read(line,*) NumTpoints
         else if (index(line,"! NewBackIt")>0) then 
           read(line,*) NewBackIt
         else if (index(line,"! NewBackFac")>0) then 

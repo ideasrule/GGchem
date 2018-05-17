@@ -2,7 +2,7 @@
       module PARAMETERS
 ************************************************************************
       character(len=200) :: elements,abund_file,struc_file
-      integer :: abund_pick,model_dim,Npoints,model_struc
+      integer :: abund_pick,model_dim,Npoints,NumTpoints,model_struc
       logical :: model_eqcond,model_pconst
       logical :: useDataBase,remove_condensates
       real*8  :: Tfast,Tmin,Tmax,pmin,pmax,nHmin,nHmax
